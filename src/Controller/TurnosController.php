@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controller;
-
+use App\Entity\User;
 use App\Entity\Turno;
 use App\Form\TurnosType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -19,8 +19,8 @@ class TurnosController extends AbstractController
         $form = $this->createForm(TurnosType::class,$turno);
         $form->handleRequest($request);
         if($form->isSubmitted()&& $form->isValid()){
-            $username= $this->getUser('Username');
-            $turno->setUsername($username);
+            
+            
             $em=$this->getDoctrine()->getManager();
             $em->persist($turno);
             $em->flush();
@@ -29,5 +29,7 @@ class TurnosController extends AbstractController
         return $this->render('turnos/index.html.twig', [
             'form' => $form->createView(),
         ]);
+  
     }
 }
+

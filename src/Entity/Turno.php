@@ -16,11 +16,18 @@ class Turno
      * @ORM\Column(type="integer")
      */
     private $id;
-
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $turno;
+    
+    
+    private $id_cola;
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    
+    
+     private $turno;
     /**
      * @ORM\Column(type="string", length=180, unique=true)
      */
@@ -60,6 +67,22 @@ class Turno
     public function setUsername(string $username): self
     {
         $this->username = $username;
+
+        return $this;
+    }
+    /**
+     * A visual identifier that represents this user.
+     *
+     * @see UserInterface
+     */
+    public function getIdcola(): string
+    {
+        return (string) $this->id_cola;
+    }
+
+    public function setIdcola(string $id_cola): self
+    {
+        $this->idcola = $id_cola;
 
         return $this;
     }
